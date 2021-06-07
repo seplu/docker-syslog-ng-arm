@@ -12,6 +12,8 @@ ADD syslog-ng.conf /etc/syslog-ng/syslog-ng.conf
 RUN find /usr/lib/ -name 'libjvm.so*' | xargs dirname | tee --append /etc/ld.so.conf.d/openjdk-libjvm.conf
 RUN ldconfig
 
+VOLUME ["/var/log/syslog-ng"]
+
 EXPOSE 514/udp
 EXPOSE 6514/tcp
 
